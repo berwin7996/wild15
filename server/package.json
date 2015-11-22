@@ -16,11 +16,12 @@
   "bugs": {
     "url": "https://github.com/berwin7996/wild15/issues"
   },
-    "dependencies": {
+  "dependencies": {
     "body-parser": "^1.12.2",
     "cors": "^2.5.3",
     "express": "^4.10.6",
     "keyword-extractor": "0.0.12",
-    "morgan": "^1.5.2"
+    "morgan": "^1.5.2",
+    "lame": "~1.2.3"
   }
 }
