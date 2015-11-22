@@ -15,12 +15,16 @@ $(window).resize(function() {
 
 function sendNote() {
     var myurl = '/instrument/triangle/1';
-    $.ajax({
-        url: myurl,
-        success: function(data){
-            console.log(myurl);
-        }
-    });
+    console.log(myurl);
+    // document.getElementById("client-form").submit();
+    // $.ajax({
+    //     url: '/triangle/submit',
+    //     success: function(data){
+    //       console.log('ding');
+    //     }
+    // });
+
+    socket.emit("triangle", {note:1});
 }
 
 

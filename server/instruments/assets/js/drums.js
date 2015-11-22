@@ -18,12 +18,14 @@ $(window).resize(function() {
 
 function sendNote(note) {
     var myurl = '/instrument/drum/' + note;
-    $.ajax({
-        url: myurl,
-        success: function(data){
-            console.log(myurl);
-        }
-    });
+    socket.emit("drums", {note: note});
+
+    // $.ajax({
+    //     url: myurl,
+    //     success: function(data){
+    //         console.log(myurl);
+    //     }
+    // });
 }
 
 function whatNote(canvas, x, y) {
@@ -43,7 +45,7 @@ function whatNote(canvas, x, y) {
                     var stri = x + ', ' + y;
                     console.log(stri);
                     // console.log(notes[i]);
-                    sendNote(j*3 + i );
+                    sendNote(j*3 + i +1);
                     colorKey(j*3 + i);
                     i = -1;
                     break;

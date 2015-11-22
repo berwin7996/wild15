@@ -10,4 +10,10 @@
 
 <body>
     <canvas id="triangleCanvas">
+    <form id="client-form" action="/triangle/submit" method="post"></form>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+    <script>
+        var socket = io.connect("http://localhost:9001");
+    </script>
 </body>

@@ -18,12 +18,14 @@ $(window).resize(function() {
 
 function sendNote(note) {
     var myurl = '/instrument/piano/' + note;
-    $.ajax({
-        url: myurl,
-        success: function(data){
-            console.log(myurl);
-        }
-    });
+    socket.emit("piano", {note: note});
+
+    // $.ajax({
+    //     url: myurl,
+    //     success: function(data){
+    //         console.log(myurl);
+    //     }
+    // });
 }
 
 function whatNote(canvas, x, y) {
