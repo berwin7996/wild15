@@ -2,6 +2,7 @@ var express = require('express');
 var lame = require('lame');
 var Speaker = require('speaker');
 var fs = require('fs');
+var path = require('path');
 
 var router = express.Router();
 
