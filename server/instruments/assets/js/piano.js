@@ -4,7 +4,7 @@ var canvas;
 var context;
 
 var keywidth;
-var notes = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
+var notes = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
 $(document).ready(function() {
     initCanvas();
@@ -16,6 +16,15 @@ $(window).resize(function() {
     resizeCanvas();
 });
 
+function sendNote(note) {
+    var myurl = '/instrument/piano/' + note;
+    $.ajax({
+        url: myurl,
+        success: function(data){
+            console.log(myurl);
+        }
+    });
+}
 
 function whatNote(canvas, x, y) {
         // var context = canvas.getContext('2d');
@@ -30,6 +39,8 @@ function whatNote(canvas, x, y) {
                 // context.fillText(notes[i], 10, 25);
                 console.log(x);
                 console.log(notes[i]);
+                sendNote(i + 1);
+                colorKey(i);
                 break;
             }
         }
@@ -66,9 +77,21 @@ function redraw() {
     // white keys
     var whichkey = 0
     for (whichkey; whichkey < 8; whichkey++) {
-        context.rect(0, 0, whichkey*keywidth, canvasHeight);
+        context.rect(whichkey*keywidth, 0, keywidth, canvasHeight);
         context.stroke();
     }
+
+    // drawing = new Image();
+    // drawing.src = "assets/91.png"; // can also be a remote URL e.g. http://
+    // drawing.onload = function() {
+    //    context.drawImage(drawing,0,0);
+    // };
+}
+
+function colorKey(key) {
+    // context.rect();
+    context.fillStyle = "#DDDDDD"
+    context.fillRect(key*keywidth, 0, keywidth, canvasHeight);
 }
 
 function getMousePos(canvas, evt) {

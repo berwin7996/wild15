@@ -1,9 +1,13 @@
-body, html { 
-    overflow-x: hidden; 
-    overflow-y: auto;
+html, body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+}
+body {
+  position: relative
 }
 
-* {
-    margin: 0;
-    padding: 0;
+#cDiv {
+    width: 90%;
+    height: 90%;
 }
