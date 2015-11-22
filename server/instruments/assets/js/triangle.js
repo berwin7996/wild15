@@ -3,9 +3,6 @@ var canvasHeight = window.innerHeight;
 var canvas;
 var context;
 
-var keywidth;
-var notes = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-
 $(document).ready(function() {
     initCanvas();
     resizeCanvas();
@@ -16,8 +13,8 @@ $(window).resize(function() {
     resizeCanvas();
 });
 
-function sendNote(note) {
-    var myurl = '/instrument/triangle/' + note;
+function sendNote() {
+    var myurl = '/instrument/triangle/1';
     $.ajax({
         url: myurl,
         success: function(data){
@@ -26,25 +23,6 @@ function sendNote(note) {
     });
 }
 
-function whatNote(canvas, x, y) {
-        // var context = canvas.getContext('2d');
-
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        redraw();
-
-        var i;
-        for (i=6; i >= 0; i--) {
-            // detected which key
-            if (x > i*keywidth) {
-                // context.fillText(notes[i], 10, 25);
-                console.log(x);
-                console.log(notes[i]);
-                sendNote(i + 1);
-                colorKey(i);
-                break;
-            }
-        }
-}
 
 function initCanvas() {
     canvas = document.getElementById("triangleCanvas");
@@ -52,9 +30,7 @@ function initCanvas() {
     redraw();
 
     canvas.addEventListener('click', function(evt) {
-        var mousePos = getMousePos(canvas, evt);
-        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        whatNote(canvas, mousePos.x, mousePos.y);
+        sendNote();
       }, false);
 
 
@@ -72,26 +48,10 @@ function resizeCanvas() {
 }
 
 function redraw() {
-    
-
      drawing = new Image();
      drawing.src = "assets/resources/triangle.png"; // can also be a remote URL e.g. http://
+     // var rect = canvas.getBoundingClientRect();
      drawing.onload = function() {
-        context.drawImage(drawing,0,0);
+        context.drawImage(drawing, canvas.width/2 - drawing.width/2, canvas.height/2 - drawing.height/2);
      };
 }
-
-function colorKey(key) {
-    // context.rect();
-    context.fillStyle = "#DDDDDD"
-    context.fillRect(key*keywidth, 0, keywidth, canvasHeight);
-}
-
-function getMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();
-    return {
-      x: evt.clientX - rect.left,
-      y: evt.clientY - rect.top
-    };
-}
-

@@ -1,0 +1,13 @@
+html, body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+}
+body {
+  position: relative
+}
+
+#cDiv {
+    width: 90%;
+    height: 90%;
+}
