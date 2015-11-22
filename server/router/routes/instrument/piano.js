@@ -15,7 +15,7 @@ router.get('/test', function(req, res) {
 */
 router.get('/1', function(req, res) {
     var file = fs.createReadStream('./tones/piano/A.mp3');
-    var decoder = lame.Decoder(0);
+    var decoder = lame.Decoder();
     var speaker = new Speaker();
     speaker.on('error', function(err) {
         console.log(err);
@@ -30,7 +30,7 @@ router.get('/1', function(req, res) {
 */
 router.get('/2', function(req, res) {
     var file = fs.createReadStream('./tones/piano/B.mp3');
-    var decoder = lame.Decoder(0);
+    var decoder = lame.Decoder();
     var speaker = new Speaker();
     speaker.on('error', function(err) {
         console.log(err);
@@ -45,7 +45,7 @@ router.get('/2', function(req, res) {
 */
 router.get('/3', function(req, res) {
     var file = fs.createReadStream('./tones/piano/C.mp3');
-    var decoder = lame.Decoder(0);
+    var decoder = lame.Decoder();
     var speaker = new Speaker();
     speaker.on('error', function(err) {
         console.log(err);
@@ -60,7 +60,7 @@ router.get('/3', function(req, res) {
 */
 router.get('/4', function(req, res) {
     var file = fs.createReadStream('./tones/piano/D.mp3');
-    var decoder = lame.Decoder(0);
+    var decoder = lame.Decoder();
     var speaker = new Speaker();
     speaker.on('error', function(err) {
         console.log(err);
@@ -75,7 +75,7 @@ router.get('/4', function(req, res) {
 */
 router.get('/5', function(req, res) {
     var file = fs.createReadStream('./tones/piano/E.mp3');
-    var decoder = lame.Decoder(0);
+    var decoder = lame.Decoder();
     var speaker = new Speaker();
     speaker.on('error', function(err) {
         console.log(err);
@@ -90,7 +90,7 @@ router.get('/5', function(req, res) {
 */
 router.get('/6', function(req, res) {
     var file = fs.createReadStream('./tones/piano/F.mp3');
-    var decoder = lame.Decoder(0);
+    var decoder = lame.Decoder();
     var speaker = new Speaker();
     speaker.on('error', function(err) {
         console.log(err);
@@ -105,7 +105,7 @@ router.get('/6', function(req, res) {
 */
 router.get('/7', function(req, res) {
     var file = fs.createReadStream('./tones/piano/G.mp3');
-    var decoder = lame.Decoder(0);
+    var decoder = lame.Decoder();
     var speaker = new Speaker();
     speaker.on('error', function(err) {
         console.log(err);

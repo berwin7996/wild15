@@ -12,7 +12,7 @@ router.get('/test', function(req, res) {
 
 router.get('/1', function(req, res) {
     var file = fs.createReadStream('./tones/triangle/triangle_long_strike.mp3');
-    var decoder = lame.Decoder(0);
+    var decoder = lame.Decoder();
     var speaker = new Speaker();
     speaker.on('error', function(err) {
         console.log(err);
