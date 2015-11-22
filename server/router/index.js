@@ -27,8 +27,13 @@ module.exports = function (app) {
     });
 
     router.post('/triangle/submit', function (req, res) {
-        console.log('triangle');
         io.emit('triangle', req.body);
+        res.status(200).redirect('/client');
+    });
+
+    router.post('/song/submit', function (req, res) {
+        console.log('song');
+        io.emit('song', req.body);
         res.status(200).redirect('/client');
     });
 

@@ -17,7 +17,7 @@ $(window).resize(function() {
 });
 
 function sendNote(note) {
-    var myurl = '/instrument/drum/' + note;
+    // var myurl = '/instrument/drum/' + note;
     socket.emit("drums", {note: note});
 
     // $.ajax({

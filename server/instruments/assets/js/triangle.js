@@ -14,8 +14,6 @@ $(window).resize(function() {
 });
 
 function sendNote() {
-    var myurl = '/instrument/triangle/1';
-    console.log(myurl);
     // document.getElementById("client-form").submit();
     // $.ajax({
     //     url: '/triangle/submit',

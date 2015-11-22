@@ -16,7 +16,7 @@ router.get('/test', function(req, res) {
 */
 router.post('/say', function(req, res) {
     var text = req.body.text;
-    console.log(text);
+    // console.log(text);
     say.speak(null, text);    
     res.sendStatus(200);
 });
@@ -26,7 +26,7 @@ router.post('/say', function(req, res) {
 */
 router.post('/usay', function(req, res) {
     var text = req.body.text;
-    console.log(text);
+    // console.log(text);
     say.speak(null, text);    
     res.sendStatus(200);
 });
